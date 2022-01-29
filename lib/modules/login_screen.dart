@@ -52,6 +52,7 @@ class _LoginScreenState extends State<LoginScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
       body: Padding(
         padding: const EdgeInsets.all(20.0),
         child: Center(
@@ -61,13 +62,22 @@ class _LoginScreenState extends State<LoginScreen> {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  SizedBox(
-                      width: 180,
-                      child: Image.asset(
-                        'assets/images/logo.png',
-                      )),
+                  Row(
+                    children: [
+                      SizedBox(
+                          width: 160,
+                          child: Image.network(
+                            'https://pbs.twimg.com/profile_images/1463964234744836099/yEJDQ4Eq_400x400.jpg',
+                          )),
+                      SizedBox(
+                          width: 160,
+                          child: Image.asset(
+                            'assets/images/logo.png',
+                          )),
+                    ],
+                  ),
                   const SizedBox(
-                    height: 70,
+                    height: 15,
                   ),
                   TextFormField(
                     onChanged: (email){onEmailChanged(email);},

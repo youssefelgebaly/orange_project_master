@@ -1,62 +1,83 @@
-class Product {
+class ProductDetailsModel {
+  late Product? productd;
 
-  final String imageName;
-  final String title;
-  final String subTitle;
-  final int price;
+  ProductDetailsModel({required this.productd});
 
-  Product(this.imageName,this.title, this.subTitle,this.price);
+  ProductDetailsModel.fromJson(Map<String, dynamic> json) {
+    productd =
+    (json['product'] != null ? new Product.fromJson(json['product']) : null)!;
+  }
 
+  Map<String, dynamic> toJson() {
+    final Map<String, dynamic> data = new Map<String, dynamic>();
+    if (this.productd != null) {
+      data['product'] = this.productd!.toJson();
+    }
+    return data;
+  }
 }
 
-List<Product> products = [
-  Product(
-    'https://m.media-amazon.com/images/I/61TuHsBBXDL._AC_SX522_.jpg',
-    'Beavers Basic Round Neck T-Shirt',
-    'Brand: Beavers',
-     120,
-  ),
-  Product(
-    'https://m.media-amazon.com/images/I/71zwao302EL._AC_SL1500_.jpg',
-    'iPhone 13 Pro Max 256GB Sierra Blue',
-    'Brand: Apple',
-    24222,
-  ),
-  Product(
-    'https://eg.jumia.is/unsafe/fit-in/680x680/filters:fill(white)/product/91/777122/1.jpg?3022',
-    'Huawei Band 6 - 1.47-inch Smart Band - Forest',
-    'Brand: Beavers',
-    836,
-  ),
-  Product(
-    'https://eg.jumia.is/unsafe/fit-in/500x500/filters:fill(white)/product/32/430732/1.jpg?2527',
-    'LG 43UP7550PVG - 43-inch Full HD LED With Built-in Receiver',
-    'Brand: LG ',
-    6655,
-  ),
-  Product(
-    'https://eg.jumia.is/unsafe/fit-in/500x500/filters:fill(white)/product/84/635661/1.jpg?1044',
-    'Andora Plaids Baby Blue & White Long Sleeves Shirt',
-    'Brand: Beavers',
-    160,
-  ),
-  Product(
-    'https://eg.jumia.is/unsafe/fit-in/500x500/filters:fill(white)/product/16/804622/1.jpg?2232',
-    'YARU Onion Powder Jar 70 G',
-    'Brand: Beavers',
-    20,
-  ),
-  Product(
-    'https://eg.jumia.is/unsafe/fit-in/500x500/filters:fill(white)/product/61/827802/1.jpg?9134',
-    'El Safa KN95 Five Layers Masks With - Protect 99% - 10 Pcs',
-    'Brand: Beavers',
-    95,
-  ),
-  Product(
-    'https://eg.jumia.is/unsafe/fit-in/680x680/filters:fill(white)/product/91/777122/1.jpg?3022',
-    'Huawei Band 6 - 1.47-inch Smart Band - Forest',
-    'Brand: Beavers',
-    836,
-  ),
+class Product {
+  int? id;
+  String? name;
+  String? title;
+  int? categoryId;
+  String? description;
+  int? price;
+  int? discount;
+  String? discountType;
+  String? currency;
+  int? inStock;
+  String? avatar;
+  int? priceFinal;
+  String? priceFinalText;
 
-];
+  Product(
+      {this.id,
+        this.name,
+        this.title,
+        this.categoryId,
+        this.description,
+        this.price,
+        this.discount,
+        this.discountType,
+        this.currency,
+        this.inStock,
+        this.avatar,
+        this.priceFinal,
+        this.priceFinalText});
+
+  Product.fromJson(Map<String, dynamic> json) {
+    id = json['id'];
+    name = json['name'];
+    title = json['title'];
+    categoryId = json['category_id'];
+    description = json['description'];
+    price = json['price'];
+    discount = json['discount'];
+    discountType = json['discount_type'];
+    currency = json['currency'];
+    inStock = json['in_stock'];
+    avatar = json['avatar'];
+    priceFinal = json['price_final'];
+    priceFinalText = json['price_final_text'];
+  }
+
+  Map<String, dynamic> toJson() {
+    final Map<String, dynamic> data = new Map<String, dynamic>();
+    data['id'] = this.id;
+    data['name'] = this.name;
+    data['title'] = this.title;
+    data['category_id'] = this.categoryId;
+    data['description'] = this.description;
+    data['price'] = this.price;
+    data['discount'] = this.discount;
+    data['discount_type'] = this.discountType;
+    data['currency'] = this.currency;
+    data['in_stock'] = this.inStock;
+    data['avatar'] = this.avatar;
+    data['price_final'] = this.priceFinal;
+    data['price_final_text'] = this.priceFinalText;
+    return data;
+  }
+}
