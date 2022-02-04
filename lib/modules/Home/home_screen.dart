@@ -19,7 +19,7 @@ class HomeScreen extends StatelessWidget {
         var list = ShoppingAppCubit.get(context).products;
 
         return ConditionalBuilder(
-            condition: list != 0,
+            condition: ShoppingAppCubit.get(context).products !=null,
             builder: (context) => SafeArea(
                   child: GridView.count(
                     physics: const BouncingScrollPhysics(),
